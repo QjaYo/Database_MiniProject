@@ -35,6 +35,7 @@ void custom_query::on_query_btn_clicked()
     if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO)
     {
         print_error(SQL_HANDLE_STMT, hStmt);
+        QMessageBox::critical(this, "SQL Error", "Wrong query.");
         SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
         return;
     }

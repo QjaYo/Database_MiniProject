@@ -16,7 +16,7 @@ select_s1::~select_s1()
     delete ui;
 }
 
-//user와 OrderDate를 선택하면 해당 날짜의 주문내역(OrderDate, ItemName, PriceAtOrder, Quantity)을 가져온다.
+//user와 OrderDate를 선택하면 해당 날짜의 주문내역(OrderNo, OrderDate, ItemName, PriceAtOrder, Quantity)을 가져온다.
 
 void select_s1::on_btn_search_clicked()
 {
@@ -67,7 +67,7 @@ void select_s1::on_btn_search_clicked()
     if (year == "All")
     {
         query = QString(
-                    "SELECT O.OrderDate, I.ItemName, O.PriceAtOrder, O.Quantity "
+                    "SELECT O.OrderNo, O.OrderDate, I.ItemName, O.PriceAtOrder, O.Quantity "
                     "FROM USERS U, ORDERS O, ORDER_ITEM_DELIVERY OID, ITEMS I "
                     "WHERE U.UserNo = O.UserNo "
                     "AND O.OrderNo = OID.OrderNo "
@@ -78,7 +78,7 @@ void select_s1::on_btn_search_clicked()
     else
     {
         query = QString(
-                    "SELECT O.OrderDate, I.ItemName, O.PriceAtOrder, O.Quantity "
+                    "SELECT O.OrderNo, O.OrderDate, I.ItemName, O.PriceAtOrder, O.Quantity "
                     "FROM USERS U, ORDERS O, ORDER_ITEM_DELIVERY OID, ITEMS I "
                     "WHERE U.UserNo = O.UserNo "
                     "AND O.OrderNo = OID.OrderNo "
@@ -104,7 +104,7 @@ void select_s1::on_btn_search_clicked()
     ui->tableWidget->setRowCount(0);
     ui->tableWidget->setColumnCount(colCount);
 
-    QStringList headers = { "OrderDate", "ItemName", "PriceAtOrder", "Quantity" };
+    QStringList headers = { "OrderNo", "OrderDate", "ItemName", "PriceAtOrder", "Quantity" };
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
     int row = 0;

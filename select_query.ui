@@ -16,8 +16,8 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>150</y>
+     <x>160</x>
+     <y>160</y>
      <width>160</width>
      <height>103</height>
     </rect>
@@ -26,14 +26,14 @@
     <item>
      <widget class="QPushButton" name="btn_s1">
       <property name="text">
-       <string>Scenario1</string>
+       <string>Check Order</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="btn_s2">
       <property name="text">
-       <string>Scenario2</string>
+       <string>Check Delivery</string>
       </property>
      </widget>
     </item>
