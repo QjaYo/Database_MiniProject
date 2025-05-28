@@ -81,7 +81,7 @@
   <widget class="QPushButton" name="btn_confirm">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>370</x>
      <y>310</y>
      <width>88</width>
      <height>29</height>
