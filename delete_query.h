@@ -15,6 +15,15 @@ public:
     explicit delete_query(QWidget *parent = nullptr);
     ~delete_query();
 
+private slots:
+    void on_delete_s1_clicked();
+
+    void on_delete_s2_clicked();
+
+    void on_delete_s3_clicked();
+
+    void on_delete_s4_clicked();
+
 private:
     Ui::delete_query *ui;
 };

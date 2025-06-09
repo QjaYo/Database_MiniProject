@@ -15,6 +15,15 @@ public:
     explicit update_query(QWidget *parent = nullptr);
     ~update_query();
 
+private slots:
+    void on_insert_s1_clicked();
+
+    void on_insert_s2_clicked();
+
+    void on_insert_s3_clicked();
+
+    void on_insert_s4_clicked();
+
 private:
     Ui::update_query *ui;
 };

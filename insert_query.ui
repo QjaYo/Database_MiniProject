@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>150</y>
+     <y>130</y>
      <width>160</width>
-     <height>80</height>
+     <height>139</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -34,6 +34,20 @@
      <widget class="QPushButton" name="insert_s2">
       <property name="text">
        <string>Register Product</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="insert_s3">
+      <property name="text">
+       <string>Sign Up</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="insert_s4">
+      <property name="text">
+       <string>Place Order</string>
       </property>
      </widget>
     </item>

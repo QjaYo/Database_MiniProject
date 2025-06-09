@@ -16,8 +16,6 @@ select_s1::~select_s1()
     delete ui;
 }
 
-//user와 OrderDate를 선택하면 해당 날짜의 주문내역(OrderNo, OrderDate, ItemName, PriceAtOrder, Quantity)을 가져온다.
-
 void select_s1::on_btn_search_clicked()
 {
     QString userName = ui->textEdit_userName->toPlainText().trimmed();

@@ -11,11 +11,17 @@ CONFIG += c++17
 SOURCES += \
     custom_query.cpp \
     delete_query.cpp \
+    delete_s1.cpp \
+    delete_s2.cpp \
+    delete_s3.cpp \
+    delete_s4.cpp \
     func.cpp \
     global.cpp \
     insert_query.cpp \
     insert_s1.cpp \
     insert_s2.cpp \
+    insert_s3.cpp \
+    insert_s4.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,17 +30,30 @@ SOURCES += \
     select_s1.cpp \
     select_s2.cpp \
     select_s3.cpp \
+    select_s4.cpp \
+    select_s5.cpp \
+    select_s6.cpp \
     server_connect.cpp \
-    update_query.cpp
+    update_query.cpp \
+    update_s1.cpp \
+    update_s2.cpp \
+    update_s3.cpp \
+    update_s4.cpp
 
 HEADERS += \
     custom_query.h \
     delete_query.h \
+    delete_s1.h \
+    delete_s2.h \
+    delete_s3.h \
+    delete_s4.h \
     func.h \
     global.h \
     insert_query.h \
     insert_s1.h \
     insert_s2.h \
+    insert_s3.h \
+    insert_s4.h \
     loginwindow.h \
     mainwindow.h \
     schema_check.h \
@@ -42,15 +61,28 @@ HEADERS += \
     select_s1.h \
     select_s2.h \
     select_s3.h \
+    select_s4.h \
+    select_s5.h \
+    select_s6.h \
     server_connect.h \
-    update_query.h
+    update_query.h \
+    update_s1.h \
+    update_s2.h \
+    update_s3.h \
+    update_s4.h
 
 FORMS += \
     custom_query.ui \
     delete_query.ui \
+    delete_s1.ui \
+    delete_s2.ui \
+    delete_s3.ui \
+    delete_s4.ui \
     insert_query.ui \
     insert_s1.ui \
     insert_s2.ui \
+    insert_s3.ui \
+    insert_s4.ui \
     loginwindow.ui \
     mainwindow.ui \
     schema_check.ui \
@@ -58,7 +90,14 @@ FORMS += \
     select_s1.ui \
     select_s2.ui \
     select_s3.ui \
-    update_query.ui
+    select_s4.ui \
+    select_s5.ui \
+    select_s6.ui \
+    update_query.ui \
+    update_s1.ui \
+    update_s2.ui \
+    update_s3.ui \
+    update_s4.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

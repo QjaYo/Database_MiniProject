@@ -22,6 +22,12 @@ private slots:
 
     void on_btn_s3_clicked();
 
+    void on_btn_s4_clicked();
+
+    void on_btn_s6_clicked();
+
+    void on_btn_s5_clicked();
+
 private:
     Ui::select_query *ui;
 };

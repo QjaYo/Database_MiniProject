@@ -3,7 +3,6 @@
 
 #include <QDialog>
 
-
 namespace Ui {
 class select_s3;
 }
@@ -15,6 +14,7 @@ class select_s3 : public QDialog
 public:
     explicit select_s3(QWidget *parent = nullptr);
     ~select_s3();
+    QString getSelectedItemNo() const;
 
 private slots:
     void on_btn_search_clicked();

@@ -14,9 +14,14 @@ class LoginWindow : public QDialog
 public:
     explicit LoginWindow(QWidget *parent = nullptr);
     ~LoginWindow();
+    int getUserNo() const;
+
+private slots:
+    void on_btn_login_clicked();
 
 private:
     Ui::LoginWindow *ui;
+    int userNo = -1;
 };
 
 #endif // LOGINWINDOW_H

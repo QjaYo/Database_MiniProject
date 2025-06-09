@@ -28,9 +28,6 @@ void schema_check::loadTableList()
     SQLHSTMT hStmt;
     SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
 
-    SQLCHAR tableName[256];
-    SQLSMALLINT nameLen;
-
     SQLRETURN ret = SQLTables(hStmt, NULL, 0, NULL, 0, NULL, 0, (SQLCHAR*)"TABLE", SQL_NTS);
 
     if (ret == SQL_SUCCESS || ret == SQL_SUCCESS_WITH_INFO)

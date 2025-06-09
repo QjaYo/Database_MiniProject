@@ -11,7 +11,8 @@ insert_s1::insert_s1(QWidget *parent)
 {
     ui->setupUi(this);
 
-    for (int i = 1; i <= 5; ++i) {
+    for (int i = 1; i <= 5; ++i)
+    {
         ui->comboBox->addItem(QString::number(i));
     }
 }
@@ -24,7 +25,8 @@ insert_s1::~insert_s1()
 void insert_s1::on_btn_search_clicked()
 {
     QString orderNoStr = ui->textEdit_orderNo->toPlainText().trimmed();
-    if (orderNoStr.isEmpty()) {
+    if (orderNoStr.isEmpty())
+    {
         QMessageBox::warning(this, "Error", "Please enter OrderNo.");
         return;
     }
@@ -43,12 +45,13 @@ void insert_s1::on_btn_search_clicked()
                         ).arg(orderNo);
 
     char itemName[256];
-    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS &&
-        SQLFetch(stmt) == SQL_SUCCESS) {
-
+    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS && SQLFetch(stmt) == SQL_SUCCESS)
+    {
         SQLGetData(stmt, 1, SQL_C_CHAR, itemName, sizeof(itemName), nullptr);
         ui->textEdit_itemName->setPlainText(QString::fromUtf8(itemName));
-    } else {
+    }
+    else
+    {
         QMessageBox::warning(this, "Error", "No such order number exists.");
         ui->textEdit_itemName->clear();
     }
@@ -63,18 +66,21 @@ void insert_s1::on_btn_confirm_clicked()
     QString content = ui->textEdit_review->toPlainText().trimmed();
     int rating = ui->comboBox->currentText().toInt();
 
-    if (orderNoStr.isEmpty() || content.isEmpty()) {
+    if (orderNoStr.isEmpty() || content.isEmpty())
+    {
         QMessageBox::warning(this, "Error", "OrderNo and Review content are required.");
         return;
     }
 
-    if (content.length() > 100) {
+    if (content.length() > 100)
+    {
         QMessageBox::warning(this, "Error", "Review content must be 100 characters or less.");
         return;
     }
 
     QString dateStr = QDate::currentDate().toString("yyyy-MM-dd");
-    if (QDate::currentDate() <= QDate(2025, 5, 12)) {
+    if (QDate::currentDate() <= QDate(2025, 5, 12))
+    {
         QMessageBox::warning(this, "Error", "ReviewDate must be after 2025-05-12.");
         return;
     }
@@ -92,11 +98,13 @@ void insert_s1::on_btn_confirm_clicked()
                         "WHERE O.OrderNo = %1"
                         ).arg(orderNo);
 
-    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS &&
-        SQLFetch(stmt) == SQL_SUCCESS) {
+    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS && SQLFetch(stmt) == SQL_SUCCESS)
+    {
         SQLGetData(stmt, 1, SQL_C_SLONG, &userNo, 0, nullptr);
         SQLGetData(stmt, 2, SQL_C_SLONG, &itemNo, 0, nullptr);
-    } else {
+    }
+    else
+    {
         QMessageBox::warning(this, "Error", "Invalid order number.");
         SQLFreeHandle(SQL_HANDLE_STMT, stmt);
         return;
@@ -113,11 +121,13 @@ void insert_s1::on_btn_confirm_clicked()
 
     SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &stmt);
 
-    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS) {
+    if (SQLExecDirect(stmt, (SQLCHAR*)query.toUtf8().constData(), SQL_NTS) == SQL_SUCCESS)
+    {
         QMessageBox::information(this, "Success", "Review inserted successfully.");
         ui->textEdit_review->clear();
         ui->comboBox->setCurrentIndex(0);
-    } else {
+    }
+    else {
         SQLCHAR sqlState[6], message[256];
         SQLINTEGER nativeError;
         SQLSMALLINT textLength;

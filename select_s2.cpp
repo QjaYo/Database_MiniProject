@@ -27,8 +27,9 @@ void select_s2::on_btn_search_clicked()
     }
 
     QString query = QString(
-                        "SELECT * FROM DELIVERIES D, ORDER_ITEM_DELIVERY OID "
-                        "WHERE OID.OrderNo = %1 AND OID.DeliveryNo = D.DeliveryNo").arg(orderNo);
+                        "SELECT OID.OrderNo, I.ItemName, D.DeliveryNo, D.Zipcode, D.DeliveryStatus, D.Carrier "
+                        "FROM DELIVERIES D, ORDER_ITEM_DELIVERY OID, Items I "
+                        "WHERE OID.OrderNo = %1 AND OID.DeliveryNo = D.DeliveryNo AND I.ItemNo = OID.ItemNo").arg(orderNo);
 
     SQLRETURN ret = SQLExecDirect(hStmt, (SQLCHAR*)query.toLocal8Bit().constData(), SQL_NTS);
     if (ret != SQL_SUCCESS && ret != SQL_SUCCESS_WITH_INFO) {
@@ -52,15 +53,32 @@ void select_s2::on_btn_search_clicked()
     }
 
     int row = 0;
-    while (SQLFetch(hStmt) != SQL_NO_DATA) {
+    while (SQLFetch(hStmt) != SQL_NO_DATA)
+    {
         ui->tableWidget->insertRow(row);
-        for (SQLSMALLINT col = 0; col < colCount; ++col) {
+        for (SQLSMALLINT col = 0; col < colCount; ++col)
+        {
             SQLCHAR buffer[256];
             SQLGetData(hStmt, col + 1, SQL_C_CHAR, buffer, sizeof(buffer), NULL);
-            ui->tableWidget->setItem(row, col, new QTableWidgetItem(QString::fromLocal8Bit((char*)buffer)));
+
+            QString cellText = QString::fromLocal8Bit((char*)buffer);
+
+            QString headerText = ui->tableWidget->horizontalHeaderItem(col)->text();
+            if (headerText == "DeliveryStatus")
+            {
+                if (cellText == "0") cellText = "Order Received";
+                else if (cellText == "1") cellText = "Preparing Item";
+                else if (cellText == "2") cellText = "In Transit";
+                else if (cellText == "3") cellText = "Delivered";
+                else if (cellText == "4") cellText = "Delivery Failed";
+                else cellText = "Unknown";
+            }
+
+            ui->tableWidget->setItem(row, col, new QTableWidgetItem(cellText));
         }
-        ++row;
+        row++;
     }
+
 
     SQLCloseCursor(hStmt);
     SQLFreeHandle(SQL_HANDLE_STMT, hStmt);

@@ -17,23 +17,37 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>100</y>
-     <width>160</width>
-     <height>80</height>
+     <y>80</y>
+     <width>181</width>
+     <height>139</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="insert_s1">
       <property name="text">
-       <string>Scenario1</string>
+       <string>	Recharge Balance</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="insert_s2">
       <property name="text">
-       <string>Scenario2</string>
+       <string>Category Discount</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="insert_s3">
+      <property name="text">
+       <string>Edit Item Info</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="insert_s4">
+      <property name="text">
+       <string>	Edit Review</string>
       </property>
      </widget>
     </item>

@@ -143,3 +143,16 @@ QSet<int> select_s3::getAllCategoryNos(int rootCategoryNo)
     return result;
 }
 
+QString select_s3::getSelectedItemNo() const
+{
+    int row = ui->tableWidget->currentRow();
+    if (row < 0)
+        return "";
+
+    QTableWidgetItem *item = ui->tableWidget->item(row, 0);
+    if (!item)
+        return "";
+
+    return item->text();
+}
+

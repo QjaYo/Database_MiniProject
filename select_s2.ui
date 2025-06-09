@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>706</width>
+    <width>924</width>
     <height>408</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>320</x>
      <y>80</y>
      <width>71</width>
      <height>20</height>
@@ -29,7 +29,7 @@
   <widget class="QPlainTextEdit" name="textEdit_orderNo">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>380</x>
      <y>70</y>
      <width>111</width>
      <height>31</height>
@@ -39,7 +39,7 @@
   <widget class="QPushButton" name="btn_search">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>520</x>
      <y>70</y>
      <width>88</width>
      <height>29</height>
@@ -54,7 +54,7 @@
     <rect>
      <x>50</x>
      <y>130</y>
-     <width>601</width>
+     <width>821</width>
      <height>231</height>
     </rect>
    </property>
